@@ -42,8 +42,8 @@ app.use('/api/user', userRoutes);
 app.use('/api/patient', patientRoutes);
 app.use('/api/schedule', appointmentRoutes);
 
-const port = 4000;
+const PORT = process.env.PORT || 4000;
 
-app.listen(port, () => {
-  console.log(`Server is running at ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running at ${PORT}`);
 });
