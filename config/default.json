@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://davak:zxcvbnmlp@hayok.xk2ty.mongodb.net/medic?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
+}
