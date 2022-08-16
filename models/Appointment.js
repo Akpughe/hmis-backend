@@ -26,6 +26,22 @@ var AppointmentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    consultant: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Doctor',
+    },
+    status: {
+      type: String,
+      default: 'Not started',
+      enum: [
+        'Complete',
+        'In Progress',
+        'Not started',
+        'Canceled',
+        'Rescheduled',
+        'Missed',
+      ],
+    },
   },
   { timestamps: true }
 );

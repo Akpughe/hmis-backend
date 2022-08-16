@@ -58,7 +58,7 @@ exports.bookAppointment = async (req, res, next) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { appointmentDate, concern, appointmentTime } = req.body;
+  const { appointmentDate, concern, appointmentTime, consultant } = req.body;
 
   if (!appointmentDate || !concern || !appointmentTime)
     return res
@@ -87,6 +87,8 @@ exports.bookAppointment = async (req, res, next) => {
       concern,
       appointmentNumber: newAppointmentNumber,
       patient,
+      consultant,
+      status:"Not started",
       user: user._id,
     });
 
