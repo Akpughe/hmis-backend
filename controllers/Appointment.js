@@ -32,6 +32,9 @@ exports.getAllAppoinments = async (req, res, next) => {
       'firstname',
       'phoneNumber',
 
+    ]).populate('doctor', [
+      'lastname',
+      'firstname'
     ]);
 
     res.status(200).json(appointments);
@@ -58,7 +61,7 @@ exports.bookAppointment = async (req, res, next) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { appointmentDate, concern, appointmentTime, consultant } = req.body;
+  const { appointmentDate, concern, appointmentTime, doctor } = req.body;
 
   if (!appointmentDate || !concern || !appointmentTime)
     return res
@@ -87,7 +90,7 @@ exports.bookAppointment = async (req, res, next) => {
       concern,
       appointmentNumber: newAppointmentNumber,
       patient,
-      consultant,
+      doctor,
       status:"Not started",
       user: user._id,
     });

@@ -26,7 +26,7 @@ var AppointmentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    consultant: {
+    doctor: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Doctor',
     },
