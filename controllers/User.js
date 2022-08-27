@@ -104,7 +104,6 @@ exports.getAllDocs = async (req, res, next) => {
       return res.status(404).json({
         errors: [{ msg: 'You do not have permission to perform this action' }],
       });
-    pl;
 
     const doctors = await Doctor.find().select('-password');
 
